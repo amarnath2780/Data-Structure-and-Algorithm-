@@ -1,40 +1,36 @@
 class Node:
-    def __init__(self,value=None):
+    def __init__(self,value):
         self.value = value
         self.next = None
 
-
-
 class SList:
-    def __init__(self) -> None:
-       self.head = None
-       self.tail = None
+    def __init__(self):
+        self.head = None
+        self.tail = None
 
     def __iter__(self):
+        if self.head is None:
+            return 
+        
         node = self.head
-
-        while node:
+        while node :
             yield node
             node = node.next
 
-
-
-    def insert(self,value, location):
+    def insert(self, value, location):
         new = Node(value)
-
         if self.head == None:
             self.head = new
             self.tail = new
         else:
             if location == 0:
-                new.next == self.head
-                self.head = new
-            elif location == 1:
+                new.next = self.head
+                self.head= new
+            elif location ==1:
                 new.next = None
                 self.tail.next = new
                 self.tail = new
-                
-                
+
 
         
 
